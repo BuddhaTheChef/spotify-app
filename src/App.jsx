@@ -33,7 +33,10 @@ class App extends Component {
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-    var accessToken = 'BQAIsO8iGumYDrYB-pdz9-zuOLRt-uSsilKR4szEYm1xJI6T2O3nMF1oL7_EkO-cCH46WeyfmYePPksXOrIxiuDg8ZbQXNOQzsu5OU6xmGj9cA_QoFzJeI4OwaOGjsgDVm88puocBXGfZNfLfPT5ZzBZuPfOLBIKepp-V5kJlVcWz2OW5A'
+
+    //APUT BEOFRE EVERY SESSION
+    
+    // var accessToken = ''
 
     var myOptions = {
   method: 'GET',
