@@ -1,21 +1,23 @@
 import React, {Component} from 'react';
 import './App.css';
-import Spotify from 'spotify-web-api-js';
+// import Spotify from 'spotify-web-api-js';
 
-const spotifyWebApi = new Spotify();
+// const spotifyWebApi = new Spotify();
 
 class App extends Component {
   constructor(props){
     super(props);
     const params = this.getHashParams();
     this.state ={
-      loggedIn: params.access_token ? true : false,
+      // loggedIn: params.access_token ? true : false,
       query: '',
+      artist: null
 
     }
-    if(params.access_token) {
-      spotifyWebApi.setAccessToken(params.access_token)
-    }
+    // if(params.access_token) {
+    //   console.log(params.access_token)
+    //   spotifyWebApi.setAccessToken(params.access_token)
+    // }
   }
   getHashParams() {
     var hashParams = {};
@@ -29,16 +31,56 @@ class App extends Component {
 
   search() {
     console.log('this.state', this.state);
-    spotifyWebApi.searchArtists()
-    .then((response) => {
-      console.log(response)
-      this.setState({
-        
-      })
-    })
+    const BASE_URL = 'https://api.spotify.com/v1/search?';
+    const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+    var accessToken = 'BQAIsO8iGumYDrYB-pdz9-zuOLRt-uSsilKR4szEYm1xJI6T2O3nMF1oL7_EkO-cCH46WeyfmYePPksXOrIxiuDg8ZbQXNOQzsu5OU6xmGj9cA_QoFzJeI4OwaOGjsgDVm88puocBXGfZNfLfPT5ZzBZuPfOLBIKepp-V5kJlVcWz2OW5A'
+
+    var myOptions = {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer ' + accessToken
+  },
+  mode: 'cors',
+  cache: 'default'
+};
+
+fetch(FETCH_URL, myOptions)
+  .then(response => response.json())
+  .then(json => {
+    console.log('Things:',json)
+    const artist = json.artists.items[0];
+    this.setState({ artist });
+  })
+
+    // console.log('FETCH_URL', FETCH_URL);
+    // fetch(FETCH_URL, {
+    //   method: 'GET'
+    // }).then(response => response.json())
+    // .then(json => console.log('json', json));
+
+    // spotifyWebApi.searchArtists()
+    // .then((response) => {
+    //   console.log(response)
+    //   this.setState({
+    //
+    //   })
+    // })
   }
 
   render() {
+    let artist = {
+    name: '',
+    followers: {
+      total: ''
+    },
+    images: [{url: ''}],
+    genres: []
+  };
+  if (this.state.artist !== null) {
+    console.log(artist)
+    artist = this.state.artist;
+  }
+
     return (
       <div className="App">
         <a href='http://localhost:8888'>
@@ -61,8 +103,13 @@ class App extends Component {
           <button onClick={() => this.search()}>Submit</button>
         </div>
         <div className="Profile">
-          <div>Artist Picture</div>
-          <div>Artist Name</div>
+          <img
+            alt="PROFILE_PIC"
+            className="profile-img"
+            src={artist.images[0].url}
+           />
+          <div>{artist.name}</div>
+          <div>{artist.followers.total}</div>
         </div>
         <div className="Gallery">
           Gallery
