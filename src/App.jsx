@@ -35,8 +35,8 @@ class App extends Component {
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
 
     //APUT BEOFRE EVERY SESSION
-    
-    // var accessToken = ''
+
+   var accessToken = ''
 
     var myOptions = {
   method: 'GET',
@@ -113,6 +113,16 @@ fetch(FETCH_URL, myOptions)
            />
           <div>{artist.name}</div>
           <div>{artist.followers.total}</div>
+          <div>
+            {
+              artist .genres.map((genre, k) => {
+                genre = genre !== artist.genres[artist.genres.length-1] ? `${genre}, ` : ` & ${genre}`;
+                return (
+                  <span key={k}>{genre}</span>
+                )
+              })
+            }
+          </div>
         </div>
         <div className="Gallery">
           Gallery
