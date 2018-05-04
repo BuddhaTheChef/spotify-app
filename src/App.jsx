@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 import './App.css';
-// import Spotify from 'spotify-web-api-js';
+import Spotify from 'spotify-web-api-js';
 
-// const spotifyWebApi = new Spotify();
+const spotifyWebApi = new Spotify();
 
 class App extends Component {
   constructor(props){
     super(props);
     const params = this.getHashParams();
     this.state ={
-      // loggedIn: params.access_token ? true : false,
+      loggedIn: params.access_token ? true : false,
       query: '',
       artist: null
 
     }
-    // if(params.access_token) {
-    //   console.log(params.access_token)
-    //   spotifyWebApi.setAccessToken(params.access_token)
-    // }
+    if(params.access_token) {
+      console.log(params.access_token)
+      spotifyWebApi.setAccessToken(params.access_token)
+    }
   }
   getHashParams() {
     var hashParams = {};
@@ -34,9 +34,9 @@ class App extends Component {
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
 
-    //APUT BEOFRE EVERY SESSION
+    //PUT BEOFRE EVERY SESSION
 
-   var accessToken = ''
+   var accessToken = '';
 
     var myOptions = {
   method: 'GET',
@@ -54,20 +54,6 @@ fetch(FETCH_URL, myOptions)
     const artist = json.artists.items[0];
     this.setState({ artist });
   })
-
-    // console.log('FETCH_URL', FETCH_URL);
-    // fetch(FETCH_URL, {
-    //   method: 'GET'
-    // }).then(response => response.json())
-    // .then(json => console.log('json', json));
-
-    // spotifyWebApi.searchArtists()
-    // .then((response) => {
-    //   console.log(response)
-    //   this.setState({
-    //
-    //   })
-    // })
   }
 
   render() {
@@ -94,7 +80,9 @@ fetch(FETCH_URL, myOptions)
           Music Master
         </div>
         <div>
-          <input placeholder="search an artist..."
+          <input
+            className="input-area"
+            placeholder="search an artist..."
             value={this.state.query}
             onChange={event => {this.setState({query: event.target.value})}}
             onKeyPress={event => {
@@ -103,17 +91,18 @@ fetch(FETCH_URL, myOptions)
               }
             }}
           />
-          <button onClick={() => this.search()}>Submit</button>
+          <button className="submit-button" onClick={() => this.search()}>Submit</button>
         </div>
-        <div className="Profile">
+        <div className="profile">
           <img
-            alt="PROFILE_PIC"
+            alt="PROFILE"
             className="profile-img"
             src={artist.images[0].url}
            />
-          <div>{artist.name}</div>
-          <div>{artist.followers.total}</div>
-          <div>
+           <div className="profile-info">
+          <div className="profile-name">{artist.name}</div>
+          <div className="profile-followers">{artist.followers.total} followers</div>
+          <div className="profile-genres">
             {
               artist .genres.map((genre, k) => {
                 genre = genre !== artist.genres[artist.genres.length-1] ? `${genre}, ` : ` & ${genre}`;
@@ -124,6 +113,7 @@ fetch(FETCH_URL, myOptions)
             }
           </div>
         </div>
+      </div>
         <div className="Gallery">
           Gallery
         </div>
