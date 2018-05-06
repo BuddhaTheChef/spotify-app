@@ -87,7 +87,7 @@ class App extends Component {
     return (
       <div className="App">
         <a href='http://localhost:8888'>
-          <button>Login with Spotify</button>
+          <button className="login-button">Login with Spotify</button>
         </a>
 
         <div className="App-title">
@@ -109,8 +109,7 @@ class App extends Component {
                 <img alt="PROFILE" className="profile-img" src={artist.images[0].url}/>
                 <div className="profile-info">
                   <div className="profile-name">{artist.name}</div>
-                  <div className="profile-followers">{artist.followers.total}
-                    followers</div>
+                  <div className="profile-followers">{artist.followers.total} followers</div>
                   <div className="profile-genres">
                     {artist.genres.map((genre, k) => {
                       genre = genre !== artist.genres[artist.genres.length - 1]
