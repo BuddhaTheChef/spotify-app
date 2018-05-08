@@ -41,7 +41,7 @@ class App extends Component {
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
     //PUT BEOFRE EVERY SESSION
 
-    var accessToken = 'BQAF6IGcTiNsNmPZsLtaEp7x5kJI7tWSwVWhXibRoM9CqQk5rhdqtlmhCE4RysG6RawaoD8elsN2013iaGfgWMiXVHxG1WgW3I8NceMerHkviwuRtX1m7181nj0tR-A7b855f2WOBvsQU9xGI1STvpOrtX3FjHxNvaca-XWtFIcX5fyoaQ';
+    var accessToken = '';
 
     var myOptions = {
       method: 'GET',
