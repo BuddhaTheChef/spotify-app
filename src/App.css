@@ -45,8 +45,8 @@ body{
 .profile {
   display: flex;
   justify-content: center;
-  width: 75%;
-  margin-left: 190px;
+  width: 90%;
+  margin-left: 75px;
   margin-top: 31px;
   margin-bottom: 66px;
 }
@@ -84,7 +84,7 @@ margin-bottom: 10px;
 .track {
   display: inline-block;
   width: 220px;
-  padding: 29px;
+  padding: 28px;
   height: 220px;
   margin: 10px;
   text-align: left;
