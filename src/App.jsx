@@ -41,7 +41,7 @@ class App extends Component {
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
     //PUT BEOFRE EVERY SESSION
 
-    var accessToken = '';
+    var accessToken = 'BQC79p1e_7OyoK9s1tVvfgh3_PJWreMaHK-keMfmSeUoQngvul9NrPyWOeXleaDldObAOfdg0RrSFBLhqjUNjFoTX7Zk2AChNJ8N81PNhTodzRlTNJWYSwSJy2azcCAeyIEYoZXSJbGRe6_zT5MKVHTL2puXhPXLilsJo2jxQFz1OGdxWg';
 
     var myOptions = {
       method: 'GET',
@@ -103,17 +103,19 @@ class App extends Component {
           }}/>
           <button className="submit-button" onClick={() => this.search()}>Submit</button>
         </div>
-        {this.state.artist !== null
+
+{         this.state.artist !== null 
           ? <div>
               <div className="profile">
-                <img alt="PROFILE" className="profile-img" src={artist.images[0].url}/>
+                <img alt="profile" className="profile-img" src={artist.images[0].url} />
                 <div className="profile-info">
                   <div className="profile-name">{artist.name}</div>
                   <div className="profile-followers">{artist.followers.total} followers</div>
                   <div className="profile-genres">
-                    {artist.genres.map((genre, k) => {
+                    Genres:
+{                    artist.genres.map((genre, k) => {
                       genre = genre !== artist.genres[artist.genres.length - 1]
-                        ? `${genre}, `
+                        ? ` ${genre}, `
                         : ` & ${genre}`;
                       return (
                         <span key={k}>{genre}</span>
@@ -128,6 +130,7 @@ class App extends Component {
                />
             </div>
           : <div></div>
+
 }
       </div>
     )
