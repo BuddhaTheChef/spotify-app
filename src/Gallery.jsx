@@ -42,7 +42,7 @@ class Gallery extends Component {
     console.log('gallery props', this.props);
     const tracks = this.props.tracks;
     return (
-      <div>
+      <div className="gallery-border">
         <div className="gallery-title">Gallery</div>
         {tracks.map((track, k) => {
           console.log('track', track);
