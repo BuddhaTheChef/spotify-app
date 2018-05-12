@@ -10,6 +10,7 @@ body{
 .App-title{
   font-size: 100px;
   margin-top: 10px;
+  font-family: 'Kanit', sans-serif;
 }
 .login-button{
   margin-left: 85%;
@@ -28,6 +29,7 @@ body{
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: 'Kanit', sans-serif;
 }
 
 .submit-button {
@@ -39,7 +41,8 @@ body{
   border: solid 3px white;
   border-radius: 5px;
   font-size: 18px;
-  padding-top: 4px;
+  padding-top: 1px;
+  font-family: 'Kanit', sans-serif;
 }
 
 .profile {
@@ -57,6 +60,7 @@ body{
   width: 60%;
   border: 1px solid #fff;
   border-left: none;
+  font-family: 'Kanit', sans-serif;
 }
 
 .profile-img {
@@ -72,19 +76,23 @@ body{
   margin-top: 20px;
   margin-left: 60px;
   margin-bottom: 30px;
+  font-family: 'Kanit', sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .profile-followers, .profile-genres {
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 15px;
   margin-left: 60px;
   padding: 5px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 /*GAlLERY */
 
 .gallery-title{
-  font-size: 30px;
+  font-size: 50px;
+  font-family: 'Kanit', sans-serif;
 }
 .track {
   display: inline-block;
@@ -117,6 +125,7 @@ body{
   position: absolute;
   padding: 10px;
   bottom: 18px;
+  font-family: 'Kanit', sans-serif;
 }
 
 .track-play {
@@ -128,16 +137,20 @@ body{
 .track-play-inner {
   position: absolute;
   text-align: center;
-  font-size: 25px;
+  font-size: 38px;
   background-color: black;
-  border-radius: 30px;
-  width: 60px;
-  height: 47px;
+  border-radius: 50px;
+  width: 78px;
+  height: 51px;
   color: white;
-  padding-top: 13px;
-  margin-left: 80px;
-  margin-top: 80px;
+  padding-top: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 10px;
+  margin-left: 73px;
+  margin-top: 76px;
   opacity: 0;
+  font-family: 'Kanit', sans-serif;
 }
 
 .track-play-inner:hover {
@@ -153,4 +166,12 @@ body{
   to {
     opacity: 0.8;
   }
+}
+
+.play {
+  text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green;
+}
+.pause {
+  text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green;
+
 }

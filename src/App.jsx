@@ -41,7 +41,7 @@ class App extends Component {
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
     //PUT BEOFRE EVERY SESSION
 
-    var accessToken = 'BQC79p1e_7OyoK9s1tVvfgh3_PJWreMaHK-keMfmSeUoQngvul9NrPyWOeXleaDldObAOfdg0RrSFBLhqjUNjFoTX7Zk2AChNJ8N81PNhTodzRlTNJWYSwSJy2azcCAeyIEYoZXSJbGRe6_zT5MKVHTL2puXhPXLilsJo2jxQFz1OGdxWg';
+    var accessToken = 'BQBSFteFPQBIzbzATfNdlCW0uIK1m3VOBkqmK718SlHtz6skxlnxgoLVgjSDayv83kJG59qdxjloXSXOPKa9EwtDo2ZHPXmPtAFjqs-raA5Wf3HoFO6tRFK1SxhSUiUr8zopwDIqfivk1PVc3L4YJqXkEi39zAd6AnCea78jik4HtcwFHQ';
 
     var myOptions = {
       method: 'GET',
@@ -104,7 +104,7 @@ class App extends Component {
           <button className="submit-button" onClick={() => this.search()}>Submit</button>
         </div>
 
-{         this.state.artist !== null 
+{         this.state.artist !== null
           ? <div>
               <div className="profile">
                 <img alt="profile" className="profile-img" src={artist.images[0].url} />
